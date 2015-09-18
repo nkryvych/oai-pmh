@@ -1,0 +1,191 @@
+<DIF xmlns="http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/ http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/dif_v9.7.1.xsd">
+
+    <Entry_ID>WFJ_VF_METEO</Entry_ID>
+    <!--should we create numerical ID?-->
+    <Entry_Title>Meteorological station at the Weissfluhjoch research site, Davos, Switzerland
+    </Entry_Title>
+
+    <Data_Set_Citation>
+        <Dataset_Creator>
+            SwissEX/OSPER data platform
+        </Dataset_Creator>
+        <Dataset_Title>Meteorological station at the Weissfluhjoch research site, Davos, Switzerland
+        </Dataset_Title>
+        <Dataset_Release_Date>$TODAY</Dataset_Release_Date>
+        <Dataset_Release_Place>Davos, Switzerland</Dataset_Release_Place>
+        <Dataset_Publisher>WSL Institute for Snow and Avalanche Research SLF</Dataset_Publisher>
+        <Online_Resource>$LANDINGPAGE</Online_Resource>
+    </Data_Set_Citation>
+
+    <Personnel>
+        <Role>Investigator</Role>
+        <First_Name>Charles</First_Name>
+        <Last_Name>Fierz</Last_Name>
+        <Phone>+41 81 4170 165</Phone>
+        <Fax>+41 81 4170 110</Fax>
+        <Contact_Address>
+            <Address>Flüelastrasse 11</Address>
+            <City>Davos</City>
+            <Province_or_State>Graubunden</Province_or_State>
+            <Postal_Code>7260</Postal_Code>
+            <Country>Switzerland</Country>
+        </Contact_Address>
+    </Personnel>
+
+    <Personnel>
+        <Role>Technical Contact</Role>
+        <First_Name>Admin</First_Name>
+        <Last_Name>SLF Data</Last_Name>
+        <Phone></Phone>
+        <Fax></Fax>
+        <Email></Email>
+        <Contact_Address> <!-- generate a standard 'data' email-->
+            <Address>Flüelastrasse 11</Address>
+            <City>Davos</City>
+            <Province_or_State>Graubunden</Province_or_State>
+            <Postal_Code>7260</Postal_Code>
+            <Country>Switzerland</Country>
+        </Contact_Address>
+    </Personnel>
+
+
+    <Parameters>
+        <Category>EARTH SCIENCE</Category>
+        <Topic>ATMOSPHERE</Topic>
+        <Term>ATMOSPHERIC WINDS</Term>
+        <Variable_Level_1>SURFACE WINDS</Variable_Level_1>
+        <Variable_Level_2>WIND SPEED/WIND DIRECTION</Variable_Level_2>
+    </Parameters>
+
+    <Parameters>
+        <Category>EARTH SCIENCE</Category>
+        <Topic>ATMOSPHERE</Topic>
+        <Term>ATMOSPHERIC TEMPERATURE</Term>
+        <Variable_Level_1>SURFACE TEMPERATURE</Variable_Level_1>
+        <Variable_Level_2>AIR TEMPERATURE</Variable_Level_2>
+    </Parameters>
+
+    <Parameters>
+        <Category>EARTH SCIENCE</Category>
+        <Topic>ATMOSPHERE</Topic>
+        <Term>ATMOSPHERIC WATER VAPOUR</Term>
+        <Variable_Level_1>HUMIDITY</Variable_Level_1>
+    </Parameters>
+
+    <Parameters>
+        <Category>EARTH SCIENCE</Category>
+        <Topic>ATMOSPHERE</Topic>
+        <Term>ATMOSPHERIC TEMPERATURE</Term>
+        <Variable_Level_1>SURFACE TEMPERATURE</Variable_Level_1>
+        <Variable_Level_2>SKIN TEMPERATURE</Variable_Level_2>
+    </Parameters>
+
+
+    <Temporal_Coverage>
+        <Start_Date>1996-01-08</Start_Date>
+        <Stop_Date>2015-09-15</Stop_Date>
+    </Temporal_Coverage>
+
+    <Spatial_Coverage>
+        <Southernmost_Latitude>46.829631</Southernmost_Latitude>
+        <Northernmost_Latitude>46.829631</Northernmost_Latitude>
+        <Westernmost_Longitude>9.809294</Westernmost_Longitude>
+        <Easternmost_Longitude>9.809294</Easternmost_Longitude>
+    </Spatial_Coverage>
+
+    <Location>
+        <Location_Category>Continent</Location_Category>
+        <Location_Type>Europe</Location_Type>
+        <Location_Subregion1>Switzerland</Location_Subregion1>
+        <Location_Subregion2/>
+        <Location_Subregion3/>
+        <Detailed_Location>
+            Weissfluhjoch research site, Davos, Switzerland
+        </Detailed_Location>
+    </Location>
+
+    <Data_Set_Language>EN</Data_Set_Language>
+
+    <Data_Center>
+        <Data_Center_Name>
+            <Short_Name>OSPER</Short_Name>
+            <Long_Name>SwissEX/OSPER data platform</Long_Name>
+        </Data_Center_Name>
+        <Data_Center_URL>http://montblanc.slf.ch:22001/gsnweb/app/index.html#/map?onlyPublic=false
+        </Data_Center_URL>
+
+        <Personnel>
+            <Role>Data Center Contact</Role>
+            <First_Name>OSPER</First_Name>
+            <Last_Name>Admin</Last_Name>
+            <Email>osper@slf.ch</Email>
+            <Phone></Phone>
+            <Fax></Fax>
+            <Contact_Address>
+                <Address>WSL Institute for Snow and Avalanche Research SLF</Address>
+                <Address>Flüelastrasse 11</Address>
+                <City>Davos</City>
+                <Province_or_State>Graubunden</Province_or_State>
+                <Postal_Code>7260</Postal_Code>
+                <Country></Country>
+            </Contact_Address>
+        </Personnel>
+    </Data_Center>
+
+    <Distribution>
+        <Distribution_Media>URL</Distribution_Media>
+        <Distribution_Format>CSV</Distribution_Format>
+    </Distribution>
+
+    <Reference>
+
+    </Reference>
+
+    <Summary>
+        <Abstract>
+            The experimental site at the Weissfluhjoch (WFJ, 46.83 N, 9.81 E) is located at an altitude
+            of 2540 m in the Swiss Alps
+            near Davos. During the winter months, almost all precipitation falls as snow at this
+            altitude. As a consequence, a continuous
+            seasonal snow cover builds up every winter, with a maximum snow height ranging from 153–366
+            cm over the period 1934–2012. The measurement site is located in an almost flat part of a
+            southeast oriented slope.
+        </Abstract>
+    </Summary>
+
+    <Related_URL>
+        <URL_Content_Type>
+            <Type/>
+        </URL_Content_Type>
+        <URL>
+            $LANDINGPAGE
+        </URL>
+        <Description>Documentation</Description>
+    </Related_URL>
+    <Related_URL>
+        <URL_Content_Type>
+            <Type>GET DATA</Type>
+        </URL_Content_Type>
+        <URL>
+            $LANDINGPAGE
+        </URL>
+        <Description>URL</Description>
+    </Related_URL>
+
+    <Metadata_Name>CEOS IDN DIF</Metadata_Name>
+
+    <Metadata_Version>VERSION 9.9</Metadata_Version>
+
+    <DIF_Creation_Date>2015-09-11</DIF_Creation_Date>
+
+    <Last_DIF_Revision_Date>2015-09-11</Last_DIF_Revision_Date>
+
+    <DIF_Revision_History>
+
+    </DIF_Revision_History>
+
+
+</DIF>
+

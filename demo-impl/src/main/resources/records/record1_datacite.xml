@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?><?xml-stylesheet type="text/xsl" href="xsl/oaitohtml.xsl"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2015-09-15T08:26:05Z</responseDate>
+    <request identifier="oai:oai.datacite.org:32337" metadataPrefix="oai_datacite" verb="GetRecord">
+        http://oai.datacite.org/oai
+    </request>
+    <GetRecord>
+        <record>
+            <header>
+                <identifier>oai:oai.datacite.org:32337</identifier>
+                <datestamp>2011-07-07T11:18:53Z</datestamp>
+                <setSpec>TIB</setSpec>
+                <setSpec>TIB.DAGST</setSpec>
+            </header>
+            <metadata>
+                <oai_datacite xmlns="http://schema.datacite.org/oai/oai-1.0/"
+                              xsi:schemaLocation="http://schema.datacite.org/oai/oai-1.0/ http://schema.datacite.org/oai/oai-1.0/oai.xsd">
+                    <isReferenceQuality>false</isReferenceQuality>
+                    <schemaVersion>2.1</schemaVersion>
+                    <datacentreSymbol>TIB.DAGST</datacentreSymbol>
+                    <payload>
+                        <resource xmlns="http://datacite.org/schema/kernel-2.1"
+                                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                  xsi:schemaLocation="http://datacite.org/schema/kernel-2.1 http://schema.datacite.org/meta/kernel-2.1/metadata.xsd">
+                            <identifier identifierType="DOI">10.4230/LIPIcs.ICLP.2011.139</identifier>
+                            <creators>
+                                <creator>
+                                    <creatorName>Bulwahn, Lukas</creatorName>
+                                </creator>
+                            </creators>
+                            <titles>
+                                <title>Smart test data generators via logic programming</title>
+                            </titles>
+                            <publisher>Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik GmbH, Wadern/Saarbruecken,
+                                Germany
+                            </publisher>
+                            <publicationYear>2011</publicationYear>
+                            <subjects>
+                                <subject>Computer Science</subject>
+                                <subject subjectScheme="DDC">000 Computer science, knowledge, general works</subject>
+                            </subjects>
+                            <contributors>
+                                <contributor contributorType="Editor">
+                                    <contributorName>Herbstritt, Marc</contributorName>
+                                </contributor>
+                            </contributors>
+                            <dates>
+                                <date dateType="Available">2011-06-27</date>
+                            </dates>
+                            <language>eng</language>
+                            <resourceType resourceTypeGeneral="Text">ConferencePaper</resourceType>
+                            <sizes>
+                                <size>12 pages</size>
+                            </sizes>
+                            <formats>
+                                <format>application/pdf</format>
+                            </formats>
+                            <version>1.0</version>
+                            <rights>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported license
+                                (CC-BY-NC-ND)
+                            </rights>
+                            <descriptions>
+                                <description descriptionType="Other">
+                                    We present a novel counterexample generator for the interactive theorem prover
+                                    Isabelle based on a compiler that synthesizes test data generators for functional
+                                    programming languages (e.g. Standard ML, OCaml) from specifications in Isabelle. In
+                                    contrast to naive type-based test data generators, the smart generators take the
+                                    preconditions into account and only generate tests that fulfill the preconditions.
+                                    The smart generators are constructed by a compiler that reformulates the
+                                    preconditions as logic programs and analyzes them by an enriched mode inference.
+                                    From this inference, the compiler can construct the desired generators in the
+                                    functional programming language. These test data generators are applied to find
+                                    errors in specifications, as we show in a case study of a hotel key card system.
+                                </description>
+                            </descriptions>
+                        </resource>
+                    </payload>
+                </oai_datacite>
+            </metadata>
+        </record>
+    </GetRecord>
+</OAI-PMH>

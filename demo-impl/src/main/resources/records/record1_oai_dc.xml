@@ -1,0 +1,43 @@
+<OAI-PMH xmlns='http://www.openarchives.org/OAI/2.0/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+         xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd'>
+    <responseDate>2015-09-15T12:51:25Z</responseDate>
+    <request>http://gcw.met.no/metamod/oai</request>
+    <GetRecord>
+        <record>
+            <header>
+                <identifier>oai:met.no:metamod/GCW/nipr-ads-A20141215-001</identifier>
+                <datestamp>2015-05-19T19:50:14Z</datestamp>
+            </header>
+            <metadata>
+                <oai_dc:dc xmlns='http://www.openarchives.org/OAI/2.0/oai_dc/'
+                           xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                           xmlns:oai_dc='http://www.openarchives.org/OAI/2.0/oai_dc/'
+                           xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd'
+                           xmlns:dc='http://purl.org/dc/elements/1.1/'>
+                    <dc:identifier>https://ads.nipr.ac.jp/dataset/A20141215-001</dc:identifier>
+                    <dc:title>Air, snow and ground temperature observations at three sites near Chokurdakh, Russia in
+                        2013
+                    </dc:title>
+                    <dc:description>
+                        Our research area is located near Chokurdakh (71N, 148E) in NortheaSiberia
+                    </dc:description>
+                    <dc:creator>Arctic Data archive System (ADS), Japan</dc:creator>
+                    <dc:creator>ADS</dc:creator>
+                    <dc:coverage>2012-08-04 18:00:00 to 2013-07-07 19:00:00</dc:coverage>
+                    <dc:rights>Public</dc:rights>
+                    <dc:coverage>Continent &gt; Europe &gt; Eastern Europe &gt; Russia</dc:coverage>
+                    <dc:subject>Cryosphere &gt; Frozen Ground &gt; HIDDEN
+                    </dc:subject>
+                    <dc:subject/>
+                    <dc:subject>Land Surface &gt; Land Temperature &gt; HIDDEN
+                    </dc:subject>
+                    <dc:subject/>
+                    <dc:subject>Biosphere &gt; Terrestrial Ecosystems &gt; HIDDEN
+                    </dc:subject>
+                    <dc:subject/>
+                    <dc:subject>climatologyMeteorologyAtmosphere</dc:subject>
+                </oai_dc:dc>
+            </metadata>
+        </record>
+    </GetRecord>
+</OAI-PMH>

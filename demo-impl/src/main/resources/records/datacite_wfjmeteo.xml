@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?><?xml-stylesheet type="text/xsl" href="xsl/oaitohtml.xsl"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2015-09-15T08:26:05Z</responseDate>
+    <request identifier="oai:oai.datacite.org:32337" metadataPrefix="oai_datacite" verb="GetRecord">
+        http://oai.datacite.org/oai
+    </request>
+    <GetRecord>
+        <record>
+            <header>
+                <identifier>oai:oai.datacite.org:32337</identifier>
+                <datestamp>2011-07-07T11:18:53Z</datestamp>
+            </header>
+            <metadata>
+                <oai_datacite xmlns="http://schema.datacite.org/oai/oai-1.0/"
+                              xsi:schemaLocation="http://schema.datacite.org/oai/oai-1.0/ http://schema.datacite.org/oai/oai-1.0/oai.xsd">
+                    <isReferenceQuality>false</isReferenceQuality>
+                    <schemaVersion>2.1</schemaVersion>
+                    <datacentreSymbol>TIB.DAGST</datacentreSymbol>
+                    <payload>
+                        <resource xmlns="http://datacite.org/schema/kernel-3"
+                                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                  xsi:schemaLocation="http://datacite.org/schema/kernel-3 http://schema.datacite.org/meta/kernel-3/metadata.xsd">
+                            <identifier identifierType="DOI"></identifier>
+
+                            <creators>
+                                <creator>
+                                    <creatorName>SwissEX/OSPER data platform</creatorName>
+                                </creator>
+
+                            </creators>
+
+                            <titles>
+                                <title>Meteorological station at the Weissfluhjoch research site, Davos, Switzerland
+                                </title>
+                            </titles>
+
+                            <publisher>WSL Institute for Snow and Avalanche Research SLF</publisher>
+                            <publicationYear>2015</publicationYear>
+
+
+                            <subjects>
+                                <subject>WIND SPEED/WIND DIRECTION</subject>
+                                <subject>AIR TEMPERATURE</subject>
+                                <subject>HUMIDITY</subject>
+                                <subject>SKIN TEMPERATURE</subject>
+                            </subjects>
+                            <language>en</language>
+                            <resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+                            <version>1</version>
+                            <descriptions>
+                                <description descriptionType="Abstract">
+                                    The experimental site at the Weissfluhjoch (WFJ, 46.83 N, 9.81 E) is located at an
+                                    altitude of 2540 m in the Swiss Alps
+                                    near Davos. During the winter months, almost all precipitation falls as snow at this
+                                    altitude. As a consequence, a continuous
+                                    seasonal snow cover builds up every winter, with a maximum snow height ranging from
+                                    153–366 cm over the period 1934–2012. The measurement site is located in an almost
+                                    flat part of a southeast oriented slope.
+                                </description>
+                            </descriptions>
+
+                            <dates>
+                                <date dateType="collected">1996-01-08/2015-09-15</date>
+                            </dates>
+                            <geoLocations>
+                                <geoLocation>
+                                    <geoLocationPoint>46.829631 9.809294</geoLocationPoint>
+
+                                </geoLocation>
+                            </geoLocations>
+
+
+                        </resource>
+
+                    </payload>
+                </oai_datacite>
+            </metadata>
+        </record>
+    </GetRecord>
+</OAI-PMH>
