@@ -25,12 +25,12 @@ public class TemplateHelper {
 //    public final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
     public final String DATETIME_FORMAT;
 
-    private final Properties configuration;
+    private final Properties templateConfiguration;
 
     @Inject
-    public TemplateHelper(Properties configuration) {
-        this.configuration = configuration;
-        DATETIME_FORMAT =configuration.getProperty("datetime.format");
+    public TemplateHelper(Properties templateConfiguration) {
+        this.templateConfiguration = templateConfiguration;
+        DATETIME_FORMAT =templateConfiguration.getProperty("datetime.format");
     }
 
     public Map<String, String> getCommonParameters() {
@@ -48,7 +48,7 @@ public class TemplateHelper {
 
 
         try {
-            String template = ReadFileToString.readFileFromClasspath(configuration.getProperty(templateName));
+            String template = ReadFileToString.readFileFromClasspath(templateConfiguration.getProperty(templateName));
             StrSubstitutor substitutor = new StrSubstitutor(parameters);
             return substitutor.replace(template);
         } catch (IOException e) {

@@ -13,7 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 @Import(ch.epfl.gsn.oai.demoimpl.OaiConfigurationImpl.class)
 public class Application {
 
-    @Bean(name = "configuration")
+    @Bean(name = "templateConfiguration")
     public PropertiesFactoryBean configuration() {
         PropertiesFactoryBean bean = new PropertiesFactoryBean();
         bean.setLocation(new ClassPathResource("template.properties"));

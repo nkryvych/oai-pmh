@@ -32,10 +32,10 @@ public class OaiConfigurationImpl implements OaiConfiguration{
     @Autowired
     private DcOaiFormat dcOaiFormat;
 
-    @Bean(name = "configuration")
-    public PropertiesFactoryBean configuration() {
+    @Bean(name = "recordConfiguration")
+    public PropertiesFactoryBean recordConfiguration() {
         PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new ClassPathResource("configuration.properties"));
+        bean.setLocation(new ClassPathResource("recordConfiguration.properties"));
         return bean;
     }
 

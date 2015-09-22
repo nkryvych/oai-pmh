@@ -2,13 +2,11 @@ package ch.epfl.gsn.oai.rest;
 
 import ch.epfl.gsn.oai.interfaces.DataAccessException;
 import ch.epfl.gsn.oai.rest.verbs.*;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sun.plugin.converter.util.StdUtils;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;

@@ -20,13 +20,13 @@ import java.util.Set;
 @Named
 public class FileRecordAccessService implements RecordAccessService {
 
-    private final Properties configuration;
+    private final Properties recordConfiguration;
 
     private final MetadataFormats formats;
 
     @Inject
-    public FileRecordAccessService(Properties configuration, MetadataFormats formats) {
-        this.configuration = configuration;
+    public FileRecordAccessService(Properties recordConfiguration, MetadataFormats formats) {
+        this.recordConfiguration = recordConfiguration;
         this.formats = formats;
     }
 
@@ -47,7 +47,7 @@ public class FileRecordAccessService implements RecordAccessService {
             Map<String, String> formatsToRecords = Maps.newHashMap();
 
             for (MetadataFormat metadataFormat : formats.getFormats()) {
-                String fileName = new StringBuilder().append(configuration.getProperty("records.directory"))
+                String fileName = new StringBuilder().append(recordConfiguration.getProperty("records.directory"))
                         .append(identifier).append("_").append(metadataFormat.getName()).append(".xml").toString();
                 String record = ReadFileToString.readFileFromClasspath(fileName);
 
