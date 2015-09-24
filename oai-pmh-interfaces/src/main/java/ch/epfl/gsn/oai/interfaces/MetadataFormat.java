@@ -7,4 +7,8 @@ package ch.epfl.gsn.oai.interfaces;
 public interface MetadataFormat {
     String getName();
 
+    String getSchema();
+
+    String getNamespace();
+
 }

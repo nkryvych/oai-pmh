@@ -15,4 +15,14 @@ public class DcOaiFormat implements MetadataFormat {
         return "oai_dc";
     }
 
+    @Override
+    public String getSchema() {
+        return "http://www.openarchives.org/OAI/2.0/oai_dc.xsd";
+    }
+
+    @Override
+    public String getNamespace() {
+        return "http://www.openarchives.org/OAI/2.0/oai_dc/";
+    }
+
 }

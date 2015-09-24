@@ -16,4 +16,14 @@ public class DifFormat implements MetadataFormat {
         return "dif";
     }
 
+    @Override
+    public String getSchema() {
+        return "http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/dif.xsd";
+    }
+
+    @Override
+    public String getNamespace() {
+        return "http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/";
+    }
+
 }

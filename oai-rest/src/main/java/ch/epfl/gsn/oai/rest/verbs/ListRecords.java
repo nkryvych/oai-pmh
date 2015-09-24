@@ -44,9 +44,7 @@ public class ListRecords extends ListVerb {
             xmlRecords.append(templateHelper.formatRecord(record, metadata)).append("\n");
         }
 
-        Map<String, String> verbParameters =  Maps.newHashMap();
-        verbParameters.put("records", xmlRecords.toString());
-        String verbContent = templateHelper.fillTemplate("listRecords.template", verbParameters);
+        String verbContent = xmlRecords.toString();
 
         return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
     }

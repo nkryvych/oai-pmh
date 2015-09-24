@@ -33,9 +33,8 @@ public class ListIdentifiers extends ListVerb {
         for (Record record : records) {
             headers.append(templateHelper.formatHeader(record)).append("\n");
         }
-        Map<String, String> verbParameters =  Maps.newHashMap();
-        verbParameters.put("indentifiers", headers.toString());
-        String verbContent = templateHelper.fillTemplate("listIdentifiers.template", verbParameters);
+
+        String verbContent = headers.toString();
 
         return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
     }

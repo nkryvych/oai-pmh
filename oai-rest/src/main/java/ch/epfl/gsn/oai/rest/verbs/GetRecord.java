@@ -55,21 +55,11 @@ public class GetRecord<T extends Record>{
     protected String formatContent(Record record, Converter converter) {
 
 
-        String header = templateHelper.formatHeader(record);
-
-        String verbContent = formatVerbContent(converter, record, header);
+        final String metadata = converter.convert(record);
+        String verbContent =  templateHelper.formatRecord(record, metadata);
 
         return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
     }
 
-    private String formatVerbContent(Converter converter, Record record, String header) {
-        final String metadata = converter.convert(record);
-
-        Map<String, String> verbParameters =  Maps.newHashMap();
-
-        verbParameters.put("record", templateHelper.formatRecord(record, metadata));
-
-        return templateHelper.fillTemplate("getRecord.template", verbParameters);
-    }
 
 }
