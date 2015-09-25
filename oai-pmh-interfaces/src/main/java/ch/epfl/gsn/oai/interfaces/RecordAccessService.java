@@ -8,11 +8,11 @@ import java.util.Set;
  */
 public interface RecordAccessService {
 
-    Set<Record> getRecords(Date from, Date to);
+    Set<Record> getRecords(Date from, Date to) throws DataAccessException;
 
-    Set<Record> getRecords(Date from, Date to, String resumptionToken);
+    Set<Record> getRecords(Date from, Date to, String resumptionToken) throws DataAccessException;
 
-    Record getRecord(String identifier);
+    Record getRecord(String identifier) throws DataAccessException;
 
     boolean isValidResumptionToken(String resumptionToken);
 
