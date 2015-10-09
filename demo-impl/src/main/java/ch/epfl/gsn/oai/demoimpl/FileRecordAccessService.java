@@ -18,7 +18,7 @@ import java.util.Set;
  * Created by kryvych on 10/09/15.
  */
 @Named
-public class FileRecordAccessService implements RecordAccessService {
+public class FileRecordAccessService implements RecordAccessService<XmlStringRecord> {
 
     private final Properties recordConfiguration;
 
@@ -31,13 +31,13 @@ public class FileRecordAccessService implements RecordAccessService {
     }
 
     @Override
-    public Set<Record> getRecords(Date from, Date to) {
-        Record record = getRecord("record1");
+    public Set<XmlStringRecord> getRecords(Date from, Date to) {
+        XmlStringRecord record = getRecord("record1");
         return Sets.newHashSet(record);
     }
 
     @Override
-    public Set<Record> getRecords(Date from, Date to, String resumptionToken) {
+    public Set<XmlStringRecord> getRecords(Date from, Date to, String resumptionToken) {
         return getRecords(from, to);
     }
 

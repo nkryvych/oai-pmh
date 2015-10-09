@@ -104,7 +104,7 @@ public class OaiPmhController {
 
     @ExceptionHandler(DataAccessException.class)
     public ResponseEntity<String> handleMethodArgumentNotValidException(HttpServletRequest req, DataAccessException e) {
-
+            logger.error("Error!", e);
         return new ResponseEntity<String>("Retry-After: 1200", HttpStatus.SERVICE_UNAVAILABLE);
     }
 }

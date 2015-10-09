@@ -1,15 +1,12 @@
 package ch.epfl.gsn.oai.rest.verbs;
 
 import ch.epfl.gsn.oai.interfaces.Record;
-import ch.epfl.gsn.oai.interfaces.DataAccessException;
-import ch.epfl.gsn.oai.utils.ReadFileToString;
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.springframework.context.annotation.Scope;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -22,15 +19,17 @@ import java.util.Properties;
 @Scope()
 public class TemplateHelper {
 
-//    public final String DATETIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-    public final String DATETIME_FORMAT;
+    public final String datetimeFormat;
 
     private final Properties templateConfiguration;
 
+    private final TemplateHandler templateHandler;
+
     @Inject
-    public TemplateHelper(Properties templateConfiguration) {
+    public TemplateHelper(Properties templateConfiguration, TemplateHandler templateHandler) {
         this.templateConfiguration = templateConfiguration;
-        DATETIME_FORMAT =templateConfiguration.getProperty("datetime.format");
+        this.templateHandler = templateHandler;
+        datetimeFormat = templateConfiguration.getProperty("datetime.format");
     }
 
     public Map<String, String> getCommonParameters() {
@@ -46,24 +45,19 @@ public class TemplateHelper {
 
     public String fillTemplate(String templateName, Map<String, String> parameters) {
 
-
-        try {
-            String template = ReadFileToString.readFileFromClasspath(templateConfiguration.getProperty(templateName));
-            StrSubstitutor substitutor = new StrSubstitutor(parameters);
-            return substitutor.replace(template);
-        } catch (IOException e) {
-            throw new DataAccessException(e);
-        }
+        String template = templateHandler.getTemplate(templateConfiguration.getProperty(templateName));
+        StrSubstitutor substitutor = new StrSubstitutor(parameters);
+        return substitutor.replace(template);
 
     }
 
     public String fillTemplateWithDefaultParameters(String templateName) {
-      return fillTemplate(templateName, getCommonParameters());
+        return fillTemplate(templateName, getCommonParameters());
 
     }
 
     public String formatDate(Date date) {
-        return new SimpleDateFormat(DATETIME_FORMAT).format(date);
+        return new SimpleDateFormat(datetimeFormat).format(date);
     }
 
 

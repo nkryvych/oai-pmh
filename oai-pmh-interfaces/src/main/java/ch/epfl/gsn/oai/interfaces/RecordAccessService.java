@@ -6,13 +6,13 @@ import java.util.Set;
 /**
  * Created by kryvych on 07/09/15.
  */
-public interface RecordAccessService {
+public interface RecordAccessService <T extends Record> {
 
-    Set<Record> getRecords(Date from, Date to) throws DataAccessException;
+    Set<T> getRecords(Date from, Date to) throws DataAccessException;
 
-    Set<Record> getRecords(Date from, Date to, String resumptionToken) throws DataAccessException;
+    Set<T> getRecords(Date from, Date to, String resumptionToken) throws DataAccessException;
 
-    Record getRecord(String identifier) throws DataAccessException;
+    T getRecord(String identifier) throws DataAccessException;
 
     boolean isValidResumptionToken(String resumptionToken);
 

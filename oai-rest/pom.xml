@@ -64,6 +64,62 @@
             <version>3.0</version>
         </dependency>
 
+
+        <!--Test dependencies-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hamcrest-core</artifactId>
+                    <groupId>org.hamcrest</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>1.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>1.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit-dep</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit-addons</groupId>
+            <artifactId>junit-addons</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.1.4.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <properties>
@@ -85,25 +141,8 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
-            <!--<plugin>-->
-            <!--<groupId>org.codehaus.mojo</groupId>-->
-            <!--<artifactId>jaxb2-maven-plugin</artifactId>-->
-            <!--<version>2.2</version>-->
-            <!--<executions>-->
-            <!--<execution>-->
-            <!--<goals>-->
-            <!--<goal>xjc</goal>-->
-            <!--</goals>-->
-            <!--</execution>-->
-            <!--</executions>-->
-            <!--<configuration>-->
-            <!--&lt;!&ndash; The name of your generated source package &ndash;&gt;-->
-            <!--<arguments>-extension -npa -b http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd</arguments>-->
-            <!--</configuration>-->
-            <!--</plugin>-->
-
         </plugins>
+
         <filters>
             <filter>src/main/resources/aoi-server.properties</filter>
         </filters>
@@ -112,7 +151,6 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
-                    <include>**/*.xml</include>
                     <include>**/*.tmpl</include>
                 </includes>
             </resource>

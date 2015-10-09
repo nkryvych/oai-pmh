@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.io.ClassPathResource;
 
 @SpringBootApplication
@@ -16,7 +15,7 @@ public class Application {
     @Bean(name = "templateConfiguration")
     public PropertiesFactoryBean configuration() {
         PropertiesFactoryBean bean = new PropertiesFactoryBean();
-        bean.setLocation(new ClassPathResource("template.properties"));
+        bean.setLocation(new ClassPathResource("templates/template.properties"));
         return bean;
     }
 

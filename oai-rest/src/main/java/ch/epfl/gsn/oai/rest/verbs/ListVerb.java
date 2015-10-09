@@ -1,10 +1,11 @@
 package ch.epfl.gsn.oai.rest.verbs;
 
+import ch.epfl.gsn.oai.interfaces.MetadataFormats;
 import ch.epfl.gsn.oai.interfaces.Record;
 import ch.epfl.gsn.oai.interfaces.RecordAccessService;
 import ch.epfl.gsn.oai.rest.ErrorOai;
-import ch.epfl.gsn.oai.interfaces.MetadataFormats;
 import ch.epfl.gsn.oai.rest.OaiListRequestParameters;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -45,11 +46,12 @@ public abstract class ListVerb {
             return ErrorOai.BAD_ARGUMENT.generateMessage(templateHelper, verb);
         }
 
-        if(!recordAccessService.isValidResumptionToken(parameters.getResumptionToken())) {
+        String resumptionToken = parameters.getResumptionToken();
+        if(StringUtils.isNotEmpty(resumptionToken) && !recordAccessService.isValidResumptionToken(resumptionToken)) {
             return ErrorOai.BAD_RESUMPTION_TOKEN.generateMessage(templateHelper, verb);
         }
 
-        Set<Record> records = recordAccessService.getRecords(from, until, parameters.getResumptionToken());
+        Set<Record> records = recordAccessService.getRecords(from, until, resumptionToken);
         if (CollectionUtils.isEmpty(records)) {
             return ErrorOai.NO_RECORDS_MATCH.generateMessage(templateHelper, verb);
         }
