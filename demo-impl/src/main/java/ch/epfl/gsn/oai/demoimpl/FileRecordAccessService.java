@@ -66,6 +66,6 @@ public class FileRecordAccessService implements RecordAccessService<XmlStringRec
 
     @Override
     public Date getEarliestDatestamp() {
-        return null;
+        return new Date(0);
     }
 }
