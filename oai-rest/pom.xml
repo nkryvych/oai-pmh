@@ -68,25 +68,6 @@
             </plugin>
         </plugins>
 
-        <filters>
-            <filter>src/main/resources/aoi-server.properties</filter>
-        </filters>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.tmpl</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <exclude>**/*.xml</exclude>
-                </excludes>
-            </resource>
-        </resources>
     </build>
 
     <repositories>
