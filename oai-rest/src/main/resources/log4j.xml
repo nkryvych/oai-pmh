@@ -18,7 +18,7 @@
         </layout>
     </appender>
 
-    <logger name="ch.epfl.gsn.metadata" additivity="false">
+    <logger name="ch.epfl.osper.oai" additivity="false">
         <level value="DEBUG"/>
         <appender-ref ref="metadata"/>
         <appender-ref ref="console"/>
