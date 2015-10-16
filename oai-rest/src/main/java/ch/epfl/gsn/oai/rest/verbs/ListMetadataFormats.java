@@ -2,6 +2,7 @@ package ch.epfl.gsn.oai.rest.verbs;
 
 import ch.epfl.gsn.oai.interfaces.MetadataFormat;
 import ch.epfl.gsn.oai.interfaces.MetadataFormats;
+import ch.epfl.gsn.oai.rest.ErrorOai;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,9 @@ public class ListMetadataFormats {
 
     public String getResponse() {
         StringBuilder formats = new StringBuilder();
+        if (metadataFormats.getFormats().isEmpty()) {
+            return ErrorOai.NO_METADATA_FORMATS.generateMessage(templateHelper, "ListMetadataFormats");
+        }
         for (MetadataFormat metadataFormat : metadataFormats.getFormats()) {
             Map<String, String> parameters = Maps.newHashMap();
             parameters.put("prefix", metadataFormat.getName());
