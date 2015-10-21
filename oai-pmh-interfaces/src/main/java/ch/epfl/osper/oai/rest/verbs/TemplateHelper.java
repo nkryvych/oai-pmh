@@ -92,6 +92,7 @@ public class TemplateHelper {
         Map<String, String> commonParameters = getCommonParameters();
         commonParameters.put("verb", verb);
         commonParameters.put("verbContent", verbContent);
+        commonParameters.put("request", identity.baseURL());
 
         return fillTemplate("common.template", commonParameters);
     }
