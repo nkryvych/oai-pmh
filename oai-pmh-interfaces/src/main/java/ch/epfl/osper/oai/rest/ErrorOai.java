@@ -27,11 +27,12 @@ public enum ErrorOai {
         this.errorText = errorText;
     }
 
-    public String generateMessage(TemplateHelper templateHelper, String verb) {
+    public String generateMessage(TemplateHelper templateHelper, String verb, String requestParam) {
         Map<String, String> parameters = templateHelper.getCommonParameters();
         parameters.put("verb", "verb=\"" + verb + "\"");
         parameters.put("errorCode", this.errorCode);
         parameters.put("errorText", this.errorText);
+        parameters.put("parameters", requestParam);
 
         return templateHelper.fillTemplate("error.template", parameters);
     }

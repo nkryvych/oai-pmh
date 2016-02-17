@@ -33,7 +33,7 @@ public class GetRecord<T extends Record>{
 
     public String getResponse(OaiRecordRequestParameters parameters){
         if(!metadataFormats.isSupportedFormat(parameters.getMetadataPrefix())) {
-            return ErrorOai.CANNOT_DISSEMINATE_FORMAT.generateMessage(templateHelper, this.getClass().getSimpleName());
+            return ErrorOai.CANNOT_DISSEMINATE_FORMAT.generateMessage(templateHelper, this.getClass().getSimpleName(), parameters.getParametersString());
         }
 
 
@@ -43,19 +43,19 @@ public class GetRecord<T extends Record>{
         Converter converter = converterFactory.getConverter(metadataFormat.getClass());
 
         if(record == null || !converter.canConvertRecord(record)) {
-            return ErrorOai.ID_DOES_NOT_EXIST.generateMessage(templateHelper, this.getClass().getSimpleName());
+            return ErrorOai.ID_DOES_NOT_EXIST.generateMessage(templateHelper, this.getClass().getSimpleName(), parameters.getParametersString());
         }
 
-        return formatContent(record, converter);
+        return formatContent(record, converter, parameters.getParametersString());
     }
 
-    protected String formatContent(Record record, Converter converter) {
+    protected String formatContent(Record record, Converter converter, String parameters) {
 
 
         final String metadata = converter.convert(record);
         String verbContent =  templateHelper.formatRecord(record, metadata);
 
-        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
+        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent, parameters);
     }
 
 

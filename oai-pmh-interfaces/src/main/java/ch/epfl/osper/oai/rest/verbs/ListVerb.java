@@ -34,7 +34,7 @@ public abstract class ListVerb {
         String verb = this.getClass().getSimpleName();
 
         if(!metadataFormats.isSupportedFormat(parameters.getMetadataPrefix())) {
-            return ErrorOai.CANNOT_DISSEMINATE_FORMAT.generateMessage(templateHelper, verb);
+            return ErrorOai.CANNOT_DISSEMINATE_FORMAT.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
         Date from;
         Date until;
@@ -43,17 +43,17 @@ public abstract class ListVerb {
             from = parameters.getFromDate();
             until = parameters.getUntilDate();
         } catch (ParseException e) {
-            return ErrorOai.BAD_ARGUMENT.generateMessage(templateHelper, verb);
+            return ErrorOai.BAD_ARGUMENT.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
 
         String resumptionToken = parameters.getResumptionToken();
         if(StringUtils.isNotEmpty(resumptionToken) && !recordAccessService.isValidResumptionToken(resumptionToken)) {
-            return ErrorOai.BAD_RESUMPTION_TOKEN.generateMessage(templateHelper, verb);
+            return ErrorOai.BAD_RESUMPTION_TOKEN.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
 
         Set<Record> records = recordAccessService.getRecords(from, until, resumptionToken);
         if (CollectionUtils.isEmpty(records)) {
-            return ErrorOai.NO_RECORDS_MATCH.generateMessage(templateHelper, verb);
+            return ErrorOai.NO_RECORDS_MATCH.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
 
         return formatContent(records, parameters);

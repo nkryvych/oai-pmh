@@ -130,7 +130,7 @@ public class TemplateHelperTest {
                 "<?xml version='1.0' encoding='UTF-8'?>\n" +
                         "<OAI-PMH xmlns='http://www.openarchives.org/OAI/2.0/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'\n" +
                         "         xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd'>\n" +
-                        "<request verb=\"${verb}\">${request}</request>\n" +
+                        "<request verb=\"${verb}\" ${parameters}>${request}</request>\n" +
                         "<${verb}>\n" +
                         "    ${verbContent}\n" +
                         "</${verb}>\n" +
@@ -138,10 +138,10 @@ public class TemplateHelperTest {
 
         when(templateConfigurationMock.getProperty("common.template")).thenReturn("common.template");
 
-        assertThat(subject.fillTopTmplate("testVerb", "content"), is("<?xml version='1.0' encoding='UTF-8'?>\n" +
+        assertThat(subject.fillTopTmplate("testVerb", "content", "parameters"), is("<?xml version='1.0' encoding='UTF-8'?>\n" +
                 "<OAI-PMH xmlns='http://www.openarchives.org/OAI/2.0/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'\n" +
                 "         xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd'>\n" +
-                "<request verb=\"testVerb\">${request}</request>\n" +
+                "<request verb=\"testVerb\" parameters>${request}</request>\n" +
                 "<testVerb>\n" +
                 "    content\n" +
                 "</testVerb>\n" +

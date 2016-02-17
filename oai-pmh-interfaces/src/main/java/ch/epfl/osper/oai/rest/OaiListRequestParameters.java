@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by kryvych on 07/09/15.
  */
-public class OaiListRequestParameters {
+public class OaiListRequestParameters extends RequestParameters {
 
     protected static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -72,4 +72,16 @@ public class OaiListRequestParameters {
         }
         return null;
     }
+
+    public String getParametersString() {
+        StringBuilder builder = new StringBuilder();
+        appendIfNotEmpty(builder, "metadataPrefix", this.getMetadataPrefix());
+        appendIfNotEmpty(builder, "from", this.getFrom());
+        appendIfNotEmpty(builder, "until", this.getUntil());
+        appendIfNotEmpty(builder, "set", this.getSet());
+        appendIfNotEmpty(builder, "resumptionToken", this.getResumptionToken());
+
+        return builder.toString();
+    }
+
 }

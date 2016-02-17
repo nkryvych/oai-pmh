@@ -39,6 +39,7 @@ public class TemplateHelper {
         String date = formatDate(new Date());
 
         parameters.put("responseDate", date);
+        parameters.put("request", identity.baseURL());
 
         return parameters;
     }
@@ -88,11 +89,11 @@ public class TemplateHelper {
         return fillTemplate("record.template", recordParameters);
     }
 
-    public String fillTopTmplate(String verb, String verbContent) {
+    public String fillTopTmplate(String verb, String verbContent, String parameters) {
         Map<String, String> commonParameters = getCommonParameters();
         commonParameters.put("verb", verb);
+        commonParameters.put("parameters", parameters);
         commonParameters.put("verbContent", verbContent);
-        commonParameters.put("request", identity.baseURL());
 
         return fillTemplate("common.template", commonParameters);
     }

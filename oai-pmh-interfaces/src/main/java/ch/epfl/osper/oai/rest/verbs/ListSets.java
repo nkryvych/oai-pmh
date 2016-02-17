@@ -22,6 +22,6 @@ public class ListSets {
     }
 
     public String getResponse(OaiListRequestParameters parameters) {
-        return ErrorOai.NO_SET_HIERARCHY.generateMessage(templateHelper, "ListSets");
+        return ErrorOai.NO_SET_HIERARCHY.generateMessage(templateHelper, "ListSets", parameters.getParametersString());
     }
 }

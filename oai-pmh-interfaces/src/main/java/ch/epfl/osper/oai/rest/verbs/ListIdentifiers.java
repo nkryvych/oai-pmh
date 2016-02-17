@@ -34,7 +34,7 @@ public class ListIdentifiers extends ListVerb {
 
         String verbContent = headers.toString();
 
-        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
+        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent, parameters.getParametersString());
     }
 
 }

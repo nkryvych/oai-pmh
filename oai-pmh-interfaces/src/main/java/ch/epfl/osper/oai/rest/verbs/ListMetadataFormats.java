@@ -34,7 +34,7 @@ public class ListMetadataFormats {
     public String getResponse() {
         StringBuilder formats = new StringBuilder();
         if (metadataFormats.getFormats().isEmpty()) {
-            return ErrorOai.NO_METADATA_FORMATS.generateMessage(templateHelper, "ListMetadataFormats");
+            return ErrorOai.NO_METADATA_FORMATS.generateMessage(templateHelper, "ListMetadataFormats", "");
         }
         for (MetadataFormat metadataFormat : metadataFormats.getFormats()) {
             Map<String, String> parameters = Maps.newHashMap();
@@ -45,7 +45,7 @@ public class ListMetadataFormats {
             formats.append(templateHelper.fillTemplate("metadataFormat.template", parameters)).append("\n");
         }
 
-        return templateHelper.fillTopTmplate(this.getClass().getName(), formats.toString());
+        return templateHelper.fillTopTmplate(this.getClass().getName(), formats.toString(), "");
 
     }
 }

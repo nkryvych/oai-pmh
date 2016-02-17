@@ -20,6 +20,6 @@ public class NotSupportedVerb {
 
     public String getResponse(String verb) {
 
-        return ErrorOai.BAD_VERB.generateMessage(templateHelper, verb);
+        return ErrorOai.BAD_VERB.generateMessage(templateHelper, verb, "");
     }
 }

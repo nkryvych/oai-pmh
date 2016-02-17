@@ -33,7 +33,7 @@ public class ListRecords extends ListVerb {
         StringBuilder xmlRecords = new StringBuilder();
         for (Record record : records) {
             if(record == null || !converter.canConvertRecord(record)) {
-                return ErrorOai.ID_DOES_NOT_EXIST.generateMessage(templateHelper, this.getClass().getSimpleName());
+                return ErrorOai.ID_DOES_NOT_EXIST.generateMessage(templateHelper, this.getClass().getSimpleName(), parameters.getParametersString());
             }
 
             String metadata = converter.convert(record);
@@ -42,6 +42,6 @@ public class ListRecords extends ListVerb {
 
         String verbContent = xmlRecords.toString();
 
-        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent);
+        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent, parameters.getParametersString());
     }
 }
