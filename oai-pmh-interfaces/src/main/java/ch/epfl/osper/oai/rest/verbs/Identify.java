@@ -40,7 +40,7 @@ public class Identify {
         parameters.put("baseURL", repositoryIdentity.baseURL());
         parameters.put("adminEmail", repositoryIdentity.adminEmail());
         parameters.put("deletedRecord", repositoryIdentity.deletedRecords());
-        parameters.put("granularity", repositoryIdentity.granularity());
+        parameters.put("granularity", repositoryIdentity.granularity().replace("'", ""));
 
         parameters.put("earliestDatestamp", templateHelper.formatDate(recordAccessService.getEarliestDatestamp()));
         return templateHelper.fillTemplate("identify.template", parameters);

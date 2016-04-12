@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TimeZone;
 
 /**
  * Created by kryvych on 08/09/15.
@@ -59,7 +60,9 @@ public class TemplateHelper {
 
     public String formatDate(Date date) {
         try {
-            return new SimpleDateFormat(identity.granularity()).format(date);
+            SimpleDateFormat format = new SimpleDateFormat(identity.granularity().replace("DD", "dd"));
+            format.setTimeZone(TimeZone.getTimeZone("UTC"));
+            return format.format(date);
         } catch (Exception e) {
             throw new DataAccessException("Invalid date format", e);
         }

@@ -31,6 +31,6 @@ public class RepositoryIdentityImpl implements RepositoryIdentity {
 
     @Override
     public String granularity() {
-        return "yyyy-MM-dd'T'HH:mm:ss Z";
+        return "YYYY-MM-DD'T'hh:mm:ss'Z'";
     }
 }
