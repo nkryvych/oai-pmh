@@ -92,7 +92,7 @@ public class TemplateHelper {
         return fillTemplate("record.template", recordParameters);
     }
 
-    public String fillTopTmplate(String verb, String verbContent, String parameters) {
+    public String fillTopTemplate(String verb, String verbContent, String parameters) {
         Map<String, String> commonParameters = getCommonParameters();
         commonParameters.put("verb", verb);
         commonParameters.put("parameters", parameters);

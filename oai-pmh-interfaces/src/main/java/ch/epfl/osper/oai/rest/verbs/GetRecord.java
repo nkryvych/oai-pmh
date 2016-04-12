@@ -55,7 +55,7 @@ public class GetRecord<T extends Record>{
         final String metadata = converter.convert(record);
         String verbContent =  templateHelper.formatRecord(record, metadata);
 
-        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent, parameters);
+        return templateHelper.fillTopTemplate(this.getClass().getSimpleName(), verbContent, parameters);
     }
 
 

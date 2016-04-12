@@ -63,7 +63,7 @@ public class TemplateHelperTest {
     @Test
     public void testFormatDate() throws Exception {
         Date date = new Date(0);
-        assertThat(subject.formatDate(date), is("1970-01-01T01:00:00"));
+        assertThat(subject.formatDate(date), is("1970-01-01T00:00:00"));
     }
 
     @Test
@@ -78,10 +78,10 @@ public class TemplateHelperTest {
                 "</header>");
         when(templateConfigurationMock.getProperty("header.template")).thenReturn("header.template");
 
-       assertThat(subject.formatHeader(recordMock), is("<header >\n" +
-               "    <identifier>ID1</identifier>\n" +
-               "    <datestamp>1970-01-01T01:00:00</datestamp>\n" +
-               "</header>"));
+        assertThat(subject.formatHeader(recordMock), is("<header >\n" +
+                "    <identifier>ID1</identifier>\n" +
+                "    <datestamp>1970-01-01T00:00:00</datestamp>\n" +
+                "</header>"));
     }
 
     @Test
@@ -98,7 +98,7 @@ public class TemplateHelperTest {
 
         assertThat(subject.formatHeader(recordMock), is("<header status=\"deleted\">\n" +
                 "    <identifier>ID1</identifier>\n" +
-                "    <datestamp>1970-01-01T01:00:00</datestamp>\n" +
+                "    <datestamp>1970-01-01T00:00:00</datestamp>\n" +
                 "</header>"));
     }
 
@@ -106,7 +106,7 @@ public class TemplateHelperTest {
     public void testFormatRecord() throws Exception {
         when(recordMock.getDateStamp()).thenReturn(new Date(0));
         when(recordMock.getOAIIdentifier()).thenReturn("ID1");
-        when(recordMock.isDeleted()).thenReturn(true);
+        when(recordMock.isDeleted()).thenReturn(false);
 
         when(templateHandlerMock.getTemplate("record.template")).thenReturn("<record>\n" +
                 "    ${header}\n" +
@@ -125,6 +125,22 @@ public class TemplateHelperTest {
     }
 
     @Test
+    public void testFormatDeletedRecord() throws Exception {
+        when(recordMock.getDateStamp()).thenReturn(new Date(0));
+        when(recordMock.getOAIIdentifier()).thenReturn("ID2");
+        when(recordMock.isDeleted()).thenReturn(true);
+
+        when(templateHandlerMock.getTemplate("deletedRecord.template")).thenReturn("<record>\n" +
+                "    ${header}\n" +
+                "</record>");
+        when(templateConfigurationMock.getProperty("deletedRecord.template")).thenReturn("deletedRecord.template");
+
+        assertThat(subject.formatRecord(recordMock, "metadata"), is("<record>\n" +
+                "    ${header}\n" +
+                "</record>"));
+    }
+
+    @Test
     public void testFillTopTmplate() throws Exception {
         when(templateHandlerMock.getTemplate("common.template")).thenReturn(
                 "<?xml version='1.0' encoding='UTF-8'?>\n" +
@@ -138,7 +154,7 @@ public class TemplateHelperTest {
 
         when(templateConfigurationMock.getProperty("common.template")).thenReturn("common.template");
 
-        assertThat(subject.fillTopTmplate("testVerb", "content", "parameters"), is("<?xml version='1.0' encoding='UTF-8'?>\n" +
+        assertThat(subject.fillTopTemplate("testVerb", "content", "parameters"), is("<?xml version='1.0' encoding='UTF-8'?>\n" +
                 "<OAI-PMH xmlns='http://www.openarchives.org/OAI/2.0/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'\n" +
                 "         xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd'>\n" +
                 "<request verb=\"testVerb\" parameters>${request}</request>\n" +

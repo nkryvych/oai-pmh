@@ -42,6 +42,6 @@ public class ListRecords extends ListVerb {
 
         String verbContent = xmlRecords.toString();
 
-        return templateHelper.fillTopTmplate(this.getClass().getSimpleName(), verbContent, parameters.getParametersString());
+        return templateHelper.fillTopTemplate(this.getClass().getSimpleName(), verbContent, parameters.getParametersString());
     }
 }
