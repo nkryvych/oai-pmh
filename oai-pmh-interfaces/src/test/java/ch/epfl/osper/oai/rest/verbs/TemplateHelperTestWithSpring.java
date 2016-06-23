@@ -136,7 +136,6 @@ public class TemplateHelperTestWithSpring {
         when(recordMock.isDeleted()).thenReturn(true);
 
         String actual = subject.formatRecord(recordMock, "metadata");
-        System.out.println(actual);
         assertThat(actual, is("<record>\n    <header status=\"deleted\">\n    <identifier>ID2</identifier>\n    <datestamp>1970-01-01T00:00:00</datestamp>\n</header>\n</record>"));
     }
 
