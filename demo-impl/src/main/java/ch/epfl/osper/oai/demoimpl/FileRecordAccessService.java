@@ -2,10 +2,7 @@ package ch.epfl.osper.oai.demoimpl;
 
 
 import ch.epfl.osper.oai.demoimpl.utils.ReadFileToString;
-import ch.epfl.osper.oai.interfaces.DataAccessException;
-import ch.epfl.osper.oai.interfaces.MetadataFormat;
-import ch.epfl.osper.oai.interfaces.MetadataFormats;
-import ch.epfl.osper.oai.interfaces.RecordAccessService;
+import ch.epfl.osper.oai.interfaces.*;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
@@ -40,11 +37,6 @@ public class FileRecordAccessService implements RecordAccessService<XmlStringRec
     }
 
     @Override
-    public Set<XmlStringRecord> getRecords(Date from, Date to, String resumptionToken) {
-        return getRecords(from, to);
-    }
-
-    @Override
     public XmlStringRecord getRecord(String identifier) {
         try {
             Map<String, String> formatsToRecords = Maps.newHashMap();
@@ -71,4 +63,20 @@ public class FileRecordAccessService implements RecordAccessService<XmlStringRec
     public Date getEarliestDatestamp() {
         return new Date(0);
     }
+
+    @Override
+    public boolean isSetSupported() {
+        return false;
+    }
+
+    @Override
+    public Set<XmlStringRecord> getRecords(Date from, Date to, String set, String resumptionToken) throws DataAccessException {
+        return getRecords(from, to);
+    }
+
+    @Override
+    public Set<OaiSet> getSets() throws DataAccessException {
+        return Sets.newHashSet();
+    }
+
 }

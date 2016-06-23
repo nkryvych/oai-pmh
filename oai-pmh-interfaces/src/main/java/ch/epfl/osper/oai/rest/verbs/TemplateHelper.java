@@ -1,11 +1,13 @@
 package ch.epfl.osper.oai.rest.verbs;
 
 import ch.epfl.osper.oai.interfaces.DataAccessException;
+import ch.epfl.osper.oai.interfaces.OaiSet;
 import ch.epfl.osper.oai.interfaces.Record;
 import ch.epfl.osper.oai.interfaces.RepositoryIdentity;
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.util.CollectionUtils;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -79,6 +81,8 @@ public class TemplateHelper {
         } else {
             headerParmeters.put("status", "");
         }
+
+        headerParmeters.put("sets", formatSetSpec(record));
         return fillTemplate("header.template", headerParmeters);
     }
 
@@ -90,6 +94,34 @@ public class TemplateHelper {
         recordParameters.put("metadata", metadata);
 
         return fillTemplate("record.template", recordParameters);
+    }
+
+    protected String formatSetSpec(Record record) {
+        if (!CollectionUtils.isEmpty(record.getSets())) {
+            StringBuilder setSpecs = new StringBuilder();
+            for (OaiSet oaiSet : record.getSets()) {
+                setSpecs.append("\n");
+                Map<String, String > parameters = Maps.newHashMap();
+                parameters.put("setSpec", oaiSet.getSpec());
+                setSpecs.append(fillTemplate("setSpec.template", parameters));
+            }
+            return setSpecs.toString();
+        } else {
+            return "";
+        }
+    }
+
+    public String formatSet(OaiSet set) {
+
+        Map<String, String> recordParameters = Maps.newHashMap();
+        recordParameters.put("setSpec", set.getSpec());
+        recordParameters.put("setName", set.getName());
+        if (set.hasDescription()) {
+            String description = "<setDescription>" + set.getDescription() + "</setDescription>";
+            recordParameters.put("setDescription", description);
+        }
+
+        return fillTemplate("set.template", recordParameters);
     }
 
     public String fillTopTemplate(String verb, String verbContent, String parameters) {

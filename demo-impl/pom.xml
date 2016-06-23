@@ -5,14 +5,14 @@
 
     <groupId>ch.epfl.osper.oai</groupId>
     <artifactId>oai-pmh-demo-implementation</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 
 
     <dependencies>
         <dependency>
             <groupId>ch.epfl.osper.oai</groupId>
             <artifactId>oai-pmh-interfaces</artifactId>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </dependency>
 
         <dependency>

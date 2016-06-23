@@ -1,10 +1,12 @@
 package ch.epfl.osper.oai.demoimpl;
 
 
+import ch.epfl.osper.oai.interfaces.OaiSet;
 import ch.epfl.osper.oai.interfaces.Record;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by kryvych on 09/09/15.
@@ -40,5 +42,10 @@ public class XmlStringRecord implements Record {
     @Override
     public boolean isDeleted() {
         return false;
+    }
+
+    @Override
+    public Set<OaiSet> getSets() {
+        return null;
     }
 }

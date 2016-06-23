@@ -51,7 +51,12 @@ public abstract class ListVerb {
             return ErrorOai.BAD_RESUMPTION_TOKEN.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
 
-        Set<Record> records = recordAccessService.getRecords(from, until, resumptionToken);
+        String set = parameters.getSet();
+        if(StringUtils.isNotEmpty(set) && !recordAccessService.isSetSupported()) {
+            return ErrorOai.NO_SET_HIERARCHY.generateMessage(templateHelper, verb, parameters.getParametersString());
+        }
+
+        Set<Record> records = recordAccessService.getRecords(from, until, set, resumptionToken);
         if (CollectionUtils.isEmpty(records)) {
             return ErrorOai.NO_RECORDS_MATCH.generateMessage(templateHelper, verb, parameters.getParametersString());
         }
