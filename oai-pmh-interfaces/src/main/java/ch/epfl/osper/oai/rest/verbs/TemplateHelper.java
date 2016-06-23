@@ -93,7 +93,9 @@ public class TemplateHelper {
         recordParameters.put("header", header);
         recordParameters.put("metadata", metadata);
 
-        return fillTemplate("record.template", recordParameters);
+        String templateName= record.isDeleted()?"deletedRecord.template":"record.template";
+
+        return fillTemplate(templateName, recordParameters);
     }
 
     protected String formatSetSpec(Record record) {
