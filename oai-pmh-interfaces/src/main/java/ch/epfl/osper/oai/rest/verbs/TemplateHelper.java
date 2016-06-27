@@ -121,6 +121,8 @@ public class TemplateHelper {
         if (set.hasDescription()) {
             String description = "<setDescription>" + set.getDescription() + "</setDescription>";
             recordParameters.put("setDescription", description);
+        } else {
+            recordParameters.put("setDescription", "");
         }
 
         return fillTemplate("set.template", recordParameters);

@@ -164,6 +164,17 @@ public class TemplateHelperTestWithSpring {
     }
 
     @Test
+    public void testFormatSetWithoutDescription() throws Exception {
+
+        when(setMock.getName()).thenReturn("name");
+        when(setMock.getSpec()).thenReturn("spec:name");
+        when(setMock.hasDescription()).thenReturn(false);
+
+
+        assertThat(subject.formatSet(setMock), is("<set>\n    <setSpec>spec:name</setSpec>\n    <setName>name</setName>\n    \n</set>"));
+    }
+
+    @Test
     public void testRecordWithSets() throws Exception {
 
         when(setMock.getName()).thenReturn("name");
