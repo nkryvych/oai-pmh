@@ -1,6 +1,7 @@
 package ch.epfl.osper.oai.rest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +12,10 @@ import java.util.Date;
  */
 public class OaiListRequestParameters extends RequestParameters {
 
-    protected static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    private static final String[] DATE_FORMATS = {"yyyy-MM-dd'T'HH:mm'Z'"
+            , "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            , "yyyy-MM-dd"};
+
 
     private String metadataPrefix;
     private String from;
@@ -61,14 +65,14 @@ public class OaiListRequestParameters extends RequestParameters {
 
     public Date getFromDate() throws ParseException {
         if (StringUtils.isNotEmpty(from)) {
-            return DATE_FORMAT.parse(from);
+            return  DateUtils.parseDate(from, DATE_FORMATS);
         }
         return null;
     }
 
     public Date getUntilDate() throws ParseException {
         if (StringUtils.isNotEmpty(until)) {
-            return DATE_FORMAT.parse(until);
+            return DateUtils.parseDate(until, DATE_FORMATS);
         }
         return null;
     }
